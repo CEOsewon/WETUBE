@@ -10,7 +10,8 @@ import routes from "./routes";
 
 const app = express();
 
-// 함수
+// 설정
+app.set("view engine", "pug");
 
 // 미들웨어
 app.use(helmet()); // 앱 보안
