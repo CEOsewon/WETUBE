@@ -4,7 +4,8 @@ export const videos = [
     title: "Number 1",
     description: "This is Something I love",
     views: 50,
-    videoFile: "https://archieve.org/details/BigBuckBuuny_124",
+    videoFile:
+      "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
     creator: {
       id: 1234,
       name: "Sewon",
@@ -16,7 +17,8 @@ export const videos = [
     title: "Number 2",
     description: "This is Something I love",
     views: 50,
-    videoFile: "https://archieve.org/details/BigBuckBuuny_124",
+    videoFile:
+      "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
     creator: {
       id: 1234,
       name: "Sewon",
@@ -28,7 +30,8 @@ export const videos = [
     title: "Number 3",
     description: "This is Something I love",
     views: 50,
-    videoFile: "https://archieve.org/details/BigBuckBuuny_124",
+    videoFile:
+      "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
     creator: {
       id: 1234,
       name: "Sewon",
@@ -40,7 +43,8 @@ export const videos = [
     title: "Number 4",
     description: "This is Something I love",
     views: 50,
-    videoFile: "https://archieve.org/details/BigBuckBuuny_124",
+    videoFile:
+      "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4",
     creator: {
       id: 1234,
       name: "Sewon",
