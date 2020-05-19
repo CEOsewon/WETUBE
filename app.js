@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // html url qeuryString 파�
 app.use(cookieParser()); // 사용자정보(로그인정보) 쿠키 저장
 app.use(morgan("dev")); // HTTP req(요청) 로깅
 
-app.use(localsMiddleware);
+app.use(localsMiddleware); // 전역변수 선언
 
 // 라우터
 app.use(routes.home, globalRouter);
