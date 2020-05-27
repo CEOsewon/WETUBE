@@ -14,7 +14,7 @@ const app = express();
 // 미들웨어
 app.use(helmet()); // 앱 보안
 app.set("view engine", "pug"); // 뷰 엔진 설정
-app.use("/uploads", express.static("uploads"));
+app.use("/uploads", express.static("uploads")); // '/uploads' 라우터 접근 시 'uploads' 디렉토리로 접근하여 파일을 찾아줌.
 app.use(bodyParser.json()); // html form 정보 파싱
 app.use(bodyParser.urlencoded({ extended: true })); // html url qeuryString 파싱
 app.use(cookieParser()); // 사용자정보(로그인정보) 쿠키 저장
