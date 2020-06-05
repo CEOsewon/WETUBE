@@ -18,10 +18,8 @@
     "@babel/preset-env": "^7.8.7",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
-    "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "helmet": "^3.21.3",
     "mongoose": "^5.9.15",
     "morgan": "^1.9.1",
@@ -32,8 +30,7 @@
   },
   "scripts": {
     "dev:server": "nodemon --exec babel-node init.js --delay 2",
-    "dev:assets": "cross-env WEBPACK_ENV=development webpack",
-    "build:assets": "cross-env WEBPACK_ENV=production webpack"
+    "dev:assets": "webpack"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
