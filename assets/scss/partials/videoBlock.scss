@@ -1,0 +1,20 @@
+.videoBlock {
+  video {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .videoBlock__title {
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 10px;
+  }
+  .videoBlock__views {
+    margin-bottom: 10px;
+  }
+}
+
+a,
+button,
+input[type="submit"] {
+  cursor: pointer;
+}

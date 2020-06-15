@@ -19,14 +19,16 @@ main {
 }
 
 button,
-input,
-textarea {
+input:not([type="file"]),
+textarea,
+.fileUpload {
   padding: 7px 10px;
   width: 100%;
   max-width: 320px;
   border: none;
   border-radius: 5px;
   font-size: 12px;
+  background-color: white;
   color: $black;
   font-weight: 600;
   resize: none;
