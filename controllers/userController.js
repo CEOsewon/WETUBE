@@ -14,6 +14,7 @@ export const postJoin = async (req, res, next) => {
     res.status(400);
     res.render("join", { pageTitle: "Join" });
   } else {
+    // To Do : Register User
     try {
       const user = await User({
         name,

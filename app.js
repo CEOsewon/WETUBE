@@ -4,7 +4,6 @@ import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import passport from "passport";
-import session from "express-session";
 import { localsMiddleware } from "./middlewares";
 import routes from "./routes";
 import userRouter from "./routers/userRouter";
@@ -24,13 +23,6 @@ app.use(bodyParser.json()); // html form 정보 파싱
 app.use(bodyParser.urlencoded({ extended: true })); // html url qeuryString 파싱
 app.use(cookieParser()); // 사용자정보(로그인정보) 쿠키 저장
 app.use(morgan("dev")); // HTTP req(요청) 로깅
-app.use(
-  session({
-    secret: "process.env.COOKIE_SECRET",
-    resave: true,
-    saveUninitialized: false,
-  })
-);
 app.use(passport.initialize());
 app.use(passport.session());
 
