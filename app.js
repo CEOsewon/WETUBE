@@ -3,11 +3,14 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
+import passport from "passport";
 import { localsMiddleware } from "./middlewares";
 import routes from "./routes";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
+
+import "./passport";
 
 const app = express();
 
@@ -20,6 +23,8 @@ app.use(bodyParser.json()); // html form 정보 파싱
 app.use(bodyParser.urlencoded({ extended: true })); // html url qeuryString 파싱
 app.use(cookieParser()); // 사용자정보(로그인정보) 쿠키 저장
 app.use(morgan("dev")); // HTTP req(요청) 로깅
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(localsMiddleware); // 전역변수 선언
 
