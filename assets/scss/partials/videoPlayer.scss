@@ -25,19 +25,7 @@
     .videoPlayer__column:first-child {
       display: flex;
       align-items: center;
-      .videoPlayer__volume-container {
-        input {
-          position: absolute;
-          bottom: 140px;
-          left: 7px;
-          width: 80px;
-          padding: 0;
-          margin-bottom: 30px;
-          transform-origin: 75px 75px;
-          transform: rotate(-90deg);
-        }
-      }
-      span#jsVolumeBtn {
+      span:first-child {
         margin-right: 10px;
       }
     }
