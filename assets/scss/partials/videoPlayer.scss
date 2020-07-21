@@ -25,8 +25,22 @@
     .videoPlayer__column:first-child {
       display: flex;
       align-items: center;
-      span:first-child {
+      input {
+        position: absolute;
+        bottom: 170px;
+        width: 100px;
+        height: 20px;
+        margin: 0;
+        transform-origin: 75px 75px;
+        transform: rotate(-90deg);
+      }
+      span#jsVolumeBtn {
         margin-right: 10px;
+      }
+      span#timeLine {
+        width: 100px;
+        display: flex;
+        justify-content: space-between;
       }
     }
     .videoPlayer__column:last-child {

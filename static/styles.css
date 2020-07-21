@@ -354,8 +354,20 @@ input[type="submit"] {
     .videoPlayer .videoPlayer__controls .videoPlayer__column:first-child {
       display: flex;
       align-items: center; }
-      .videoPlayer .videoPlayer__controls .videoPlayer__column:first-child span:first-child {
+      .videoPlayer .videoPlayer__controls .videoPlayer__column:first-child input {
+        position: absolute;
+        bottom: 170px;
+        width: 100px;
+        height: 20px;
+        margin: 0;
+        transform-origin: 75px 75px;
+        transform: rotate(-90deg); }
+      .videoPlayer .videoPlayer__controls .videoPlayer__column:first-child span#jsVolumeBtn {
         margin-right: 10px; }
+      .videoPlayer .videoPlayer__controls .videoPlayer__column:first-child span#timeLine {
+        width: 100px;
+        display: flex;
+        justify-content: space-between; }
     .videoPlayer .videoPlayer__controls .videoPlayer__column:last-child {
       justify-self: end; }
     .videoPlayer .videoPlayer__controls .videoPlayer__column:nth-child(2) {
