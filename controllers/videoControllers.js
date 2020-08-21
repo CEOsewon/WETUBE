@@ -114,6 +114,7 @@ export const deleteVideo = async (req, res) => {
   res.redirect(routes.home);
 };
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 // Register Video View
 
@@ -132,5 +133,7 @@ export const postRegisterView = async (req, res) => {
     res.end();
   }
 };
+=======
+>>>>>>> parent of 9cbf0fd... #10.0 API Registering a View part One
 =======
 >>>>>>> parent of 9cbf0fd... #10.0 API Registering a View part One
