@@ -32,7 +32,6 @@ textarea,
   color: $black;
   font-weight: 600;
   resize: none;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   &::placeholder {
     font-weight: 300;
     color: rgba($color: #000000, $alpha: 0.6);
