@@ -1,5 +1,6 @@
 import routes from "../routes";
 import Video from "../models/Video";
+import Comment from "../models/Comment";
 
 // Home
 
@@ -58,7 +59,10 @@ export const videoDetail = async (req, res) => {
   } = req;
   try {
     const video = await Video.findById(id).populate("creator");
-    res.render("videoDetail", { pageTitle: video.title, video });
+    res.render("videoDetail", {
+      pageTitle: video.title,
+      video,
+    });
   } catch (error) {
     res.redirect(routes.home);
   }
@@ -113,27 +117,3 @@ export const deleteVideo = async (req, res) => {
   }
   res.redirect(routes.home);
 };
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-// Register Video View
-
-export const postRegisterView = async (req, res) => {
-  const {
-    params: { id },
-  } = req;
-  try {
-    const video = await Video.findById(id);
-    video.views += 1;
-    video.save();
-    res.status(200);
-  } catch (error) {
-    res.status(400);
-  } finally {
-    res.end();
-  }
-};
-=======
->>>>>>> parent of 9cbf0fd... #10.0 API Registering a View part One
-=======
->>>>>>> parent of 9cbf0fd... #10.0 API Registering a View part One
