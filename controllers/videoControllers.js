@@ -1,5 +1,6 @@
 import routes from "../routes";
 import Video from "../models/Video";
+import Comment from "../models/Comment";
 
 // Home
 
@@ -121,7 +122,7 @@ export const deleteVideo = async (req, res) => {
 
 // Register Video View
 
-export const registerView = async (req, res) => {
+export const postRegisterView = async (req, res) => {
   const {
     params: { id },
   } = req;
