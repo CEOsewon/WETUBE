@@ -61,12 +61,18 @@ export const videoDetail = async (req, res) => {
     const video = await Video.findById(id)
       .populate("creator")
       .populate("comments");
+    const comments = await video.comments;
+    const creator = await comments.forEach(function (comments) {
+      console.log(comments.creator.name);
+    });
     res.render("videoDetail", {
       pageTitle: video.title,
       video,
+      creator,
     });
   } catch (error) {
     res.redirect(routes.home);
+    console.log(error);
   }
 };
 
@@ -155,6 +161,24 @@ export const postAddComment = async (req, res) => {
     video.comments.push(newComment.id);
     video.save();
     res.status(200);
+  } catch (error) {
+    res.status(400);
+  } finally {
+    res.end();
+  }
+};
+
+// Delete Comment
+
+export const postDelComment = async (req, res) => {
+  const {
+    params: { id },
+  } = req;
+  try {
+    const video = await Video.findById(id).populate("comments");
+    const comment = await video.comments;
+    console.log(comment);
+    // id 얻어와서 삭제하는 부분 추가
   } catch (error) {
     res.status(400);
   } finally {

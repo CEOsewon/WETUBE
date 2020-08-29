@@ -32,7 +32,10 @@ block content
                 input(type="text", placeholder="Add a Comment")
             ul.video__comments__list#jsCommentList
                 each comment in video.comments.reverse()
-                    li.video__comments__list-text
-                        span=comment.text
+                    
+                        li.video__comments__list-text
+                            span#jsCommentText=comment.text
+                            
+                    
 
 
