@@ -63,7 +63,7 @@ export const videoDetail = async (req, res) => {
       .populate("comments");
     const comments = await video.comments;
     const creator = await comments.forEach(function (comments) {
-      console.log(comments.creator.name);
+      // console.log(comments.creator.name);
     });
     res.render("videoDetail", {
       pageTitle: video.title,
@@ -173,12 +173,17 @@ export const postAddComment = async (req, res) => {
 export const postDelComment = async (req, res) => {
   const {
     params: { id },
+    body: { commentText },
   } = req;
   try {
     const video = await Video.findById(id).populate("comments");
     const comment = await video.comments;
-    console.log(comment);
-    // id 얻어와서 삭제하는 부분 추가
+    const deleteText = await comment.filter(function (comment) {
+      return comment.text === commentText;
+    });
+    const deleteTextId = deleteText[0].id;
+    await Comment.findByIdAndDelete(deleteTextId);
+    res.status(200);
   } catch (error) {
     res.status(400);
   } finally {

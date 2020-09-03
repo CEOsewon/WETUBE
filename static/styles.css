@@ -430,16 +430,24 @@ input[type="submit"] {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      width: 70%; }
+      width: 100%; }
       .video-detail__container .video__comments .video__comments__list li:not(:last-child) {
         margin-bottom: 15px; }
       .video-detail__container .video__comments .video__comments__list li {
         display: flex;
         justify-content: center;
+        align-items: center;
+        width: 100%; }
+        .video-detail__container .video__comments .video__comments__list li button {
+          width: 50px;
+          padding: 5px 0;
+          background-color: #e7e7e7;
+          margin-left: 10px; }
+      .video-detail__container .video__comments .video__comments__list span {
+        width: 100%;
         background-color: #3498db;
         color: white;
         padding: 10px 20px;
-        width: 100%;
         border-radius: 20px;
         border-bottom-left-radius: 0; }
 

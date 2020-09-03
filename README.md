@@ -2,15 +2,7 @@
 
 Cloning Youtube with Vanilla and NodeJS
 
-## Pages:
+## To-Dos:
 
-- [x] Home
-- [x] Join
-- [x] Login
-- [x] Search
-- [ ] User Detail
-- [x] Edit Profile
-- [x] Change Password
-- [ ] Upload
-- [ ] Video Detail
-- [ ] Edit Video
+- [ ] add eventListener in add comment button
+- [ ] making button only if (logged user = writing comment user)

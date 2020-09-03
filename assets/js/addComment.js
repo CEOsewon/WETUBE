@@ -11,8 +11,11 @@ function addCommentNumber() {
 function paintComment(comment) {
   const li = document.createElement("li");
   const span = document.createElement("span");
+  const button = document.createElement("button");
   span.innerHTML = comment;
   li.appendChild(span);
+  button.innerHTML = "❌";
+  li.appendChild(button);
   commentList.prepend(li);
   addCommentNumber();
 }
