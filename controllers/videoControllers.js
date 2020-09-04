@@ -61,15 +61,23 @@ export const videoDetail = async (req, res) => {
     const video = await Video.findById(id)
       .populate("creator")
       .populate("comments");
-    const comments = await video.comments;
-    const creator = await comments.forEach(function (comments) {
-      // console.log(comments.creator.name);
-    });
-    res.render("videoDetail", {
-      pageTitle: video.title,
-      video,
-      creator,
-    });
+    if (req.user.id) {
+      const loggedUserComments = await Comment.find({ creator: req.user.id });
+      const otherUserComments = await video.comments.filter(function (comment) {
+        return comment.creator.toString() !== req.user.id;
+      });
+      res.render("videoDetail", {
+        pageTitle: video.title,
+        video,
+        loggedUserComments,
+        otherUserComments,
+      });
+    } else {
+      res.render("videoDetail", {
+        pageTitle: video.title,
+        video,
+      });
+    }
   } catch (error) {
     res.redirect(routes.home);
     console.log(error);

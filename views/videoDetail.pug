@@ -31,11 +31,19 @@ block content
             form.video__comments-add#jsAddCommentForm
                 input(type="text", placeholder="Add a Comment")
             ul.video__comments__list#jsCommentList
-                each comment in video.comments.reverse()
-                    
+                if loggedUser 
+                    each comment in loggedUserComments.reverse()
                         li.video__comments__list-text
                             span#jsCommentText=comment.text
                             button#jsDeleteButton ❌
+                    each comment in otherUserComments.reverse()
+                        li.video__comments__list-text
+                            span#jsCommentText=comment.text
+                else 
+                    each comment in video.comments.reverse()
+                        li.video__comments__list-text
+                            span#jsCommentText=comment.text
+            
                             
                     
 
