@@ -61,7 +61,7 @@ export const videoDetail = async (req, res) => {
     const video = await Video.findById(id)
       .populate("creator")
       .populate("comments");
-    if (req.user.id) {
+    if (req.user) {
       const loggedUserComments = await Comment.find({ creator: req.user.id });
       const otherUserComments = await video.comments.filter(function (comment) {
         return comment.creator.toString() !== req.user.id;

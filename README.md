@@ -6,4 +6,4 @@ Cloning Youtube with Vanilla and NodeJS
 
 - [ ] add eventListener in add comment button
 - [o] making button only if (logged user = writing comment user)
-- [ ] fix to render video detail
+- [o] fix the video detail view
