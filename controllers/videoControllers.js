@@ -38,10 +38,11 @@ export const getUpload = (req, res) =>
 export const postUpload = async (req, res) => {
   const {
     body: { title, description },
-    file: { path },
+    file: { location },
   } = req;
+  console.log(req.file);
   const newVideo = await Video.create({
-    fileUrl: path,
+    fileUrl: location,
     title,
     description,
     creator: req.user.id,
@@ -62,10 +63,16 @@ export const videoDetail = async (req, res) => {
       .populate("creator")
       .populate("comments");
     if (req.user) {
-      const loggedUserComments = await Comment.find({ creator: req.user.id });
-      const otherUserComments = await video.comments.filter(function (comment) {
-        return comment.creator.toString() !== req.user.id;
-      });
+      const loggedUserComments = await video.comments.filter(
+        function loadUserComments(comment) {
+          return comment.creator.toString() === req.user.id;
+        }
+      );
+      const otherUserComments = await video.comments.filter(
+        function loadAnotherComments(comment) {
+          return comment.creator.toString() !== req.user.id;
+        }
+      );
       res.render("videoDetail", {
         pageTitle: video.title,
         video,
