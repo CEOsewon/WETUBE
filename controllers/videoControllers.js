@@ -38,10 +38,10 @@ export const getUpload = (req, res) =>
 export const postUpload = async (req, res) => {
   const {
     body: { title, description },
-    file: { location },
+    file: { path },
   } = req;
   const newVideo = await Video.create({
-    fileUrl: location,
+    fileUrl: path,
     title,
     description,
     creator: req.user.id,
@@ -63,9 +63,7 @@ export const videoDetail = async (req, res) => {
       .populate("comments");
     if (req.user) {
       const loggedUserComments = await Comment.find({ creator: req.user.id });
-      const otherUserComments = await video.comments.filter(function a(
-        comment
-      ) {
+      const otherUserComments = await video.comments.filter(function (comment) {
         return comment.creator.toString() !== req.user.id;
       });
       res.render("videoDetail", {
@@ -187,8 +185,8 @@ export const postDelComment = async (req, res) => {
   } = req;
   try {
     const video = await Video.findById(id).populate("comments");
-    const comments = await video.comments;
-    const deleteText = await comments.filter(function a(comment) {
+    const comment = await video.comments;
+    const deleteText = await comment.filter(function (comment) {
       return comment.text === commentText;
     });
     const deleteTextId = deleteText[0].id;
