@@ -6,7 +6,6 @@ import bodyParser from "body-parser";
 import passport from "passport";
 import mongoose from "mongoose";
 import session from "express-session";
-import path from "path";
 import MongoStore from "connect-mongo";
 import { localsMiddleware } from "./middlewares";
 import routes from "./routes";
@@ -24,8 +23,8 @@ const CookieStore = MongoStore(session);
 // 미들웨어
 app.use(helmet()); // 앱 보안
 app.set("view engine", "pug"); // 뷰 엔진 설정
-app.set("views", path.join(__dirname, "views"));
-app.use("/static", express.static(path.join(__dirname, "static"))); // '/static' 연결요청 시 'static' 디렉토리로 접근하여 파일을 찾아줌.
+app.use("/uploads", express.static("uploads")); // '/uploads' 연결요청 시 'uploads' 디렉토리로 접근하여 파일을 찾아줌.
+app.use("/static", express.static("static")); // '/static' 연결요청 시 'static' 디렉토리로 접근하여 파일을 찾아줌.
 app.use(bodyParser.json()); // html form 정보 파싱
 app.use(bodyParser.urlencoded({ extended: true })); // html url qeuryString 파싱
 app.use(cookieParser()); // 사용자정보(로그인정보) 쿠키 저장
